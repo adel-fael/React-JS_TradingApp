@@ -21,11 +21,16 @@ const StockDetailPage = () => {
       const date = new Date()
       const currentTime = Math.floor(date.getTime() / 1000)
       let oneDay
+      // 6 means its saturday
       if (date.getDay() === 6) {
+        // two days worth of data
         oneDay = currentTime - 2 * 24 * 60 * 60
+        // 0 mean its Sunday
       } else if (date.getDay() === 0) {
+        // three days worth of data
         oneDay = currentTime - 3 * 24 * 60 * 60
       } else {
+        // one day worth of data
         oneDay = currentTime - 24 * 60 * 60
       }
       const oneWeek = currentTime - 7 * 24 * 60 * 60
@@ -38,7 +43,7 @@ const StockDetailPage = () => {
               symbol,
               from: oneDay,
               to: currentTime,
-              resolution: 30,
+              resolution: 30, // every 30 minutes
             },
           }),
           finnHub.get("/stock/candle", {
@@ -46,7 +51,7 @@ const StockDetailPage = () => {
               symbol,
               from: oneWeek,
               to: currentTime,
-              resolution: 60,
+              resolution: 60, // every 60 minutes
             },
           }),
           finnHub.get("/stock/candle", {
@@ -54,7 +59,7 @@ const StockDetailPage = () => {
               symbol,
               from: oneYear,
               to: currentTime,
-              resolution: "W",
+              resolution: "W", // every 1 week
             },
           }),
         ])

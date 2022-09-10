@@ -4,10 +4,12 @@ import { WatchListContext } from "../context/watchListContext"
 
 const AutoComplete = () => {
   const [search, setSearch] = useState("")
+  // this is for after fetching for the data
   const [results, setResults] = useState([])
   const { addStock } = useContext(WatchListContext)
 
   const renderDropdown = () => {
+    // if search is not empty array it will return 'show' and if its empty it will return null
     const dropDownClass = search ? "show" : null
     return (
       <ul
@@ -46,7 +48,7 @@ const AutoComplete = () => {
             q: search,
           },
         })
-
+        // console.log(response)
         if (isMounted) {
           setResults(response.data.result)
         }
