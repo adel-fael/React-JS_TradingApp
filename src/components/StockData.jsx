@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import finnHub from "../apis/finnHub"
+import finnHub from "@/apis/finnHub"
 
 export const StockData = ({ symbol }) => {
   const [stockData, setStockData] = useState()

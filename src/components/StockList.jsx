@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import { BsFillCaretDownFill, BsFillCaretUpFill } from "react-icons/bs"
 import { useNavigate } from "react-router-dom"
-import finnHub from "../apis/finnHub"
-import { WatchListContext } from "../context/watchListContext"
+import finnHub from "@/apis/finnHub"
+import { WatchListContext } from "@/context/watchListContext"
 
 const StockList = () => {
   const [stock, setStock] = useState([])

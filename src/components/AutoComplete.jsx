@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
-import finnHub from "../apis/finnHub"
-import { WatchListContext } from "../context/watchListContext"
+import finnHub from "@/apis/finnHub"
+import { WatchListContext } from "@/context/watchListContext"
 
 const AutoComplete = () => {
   const [search, setSearch] = useState("")
